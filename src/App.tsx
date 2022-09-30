@@ -1,13 +1,14 @@
 import ThemeProvider from './styles/themeProvider';
 import Global from './styles/global';
-import UserRegisterPage from './pages/User/Register';
+
+import LoginPage from './pages/User/Login';
 
 function App() {
   return (
     <>
       <Global/>
       <ThemeProvider>
-        <UserRegisterPage/>
+        <LoginPage/>
       </ThemeProvider>
     </>
   );
