@@ -1,4 +1,3 @@
-import React, { useEffect, useState, FormEvent } from 'react'
 import AutoComplete from '../../../components/AutoComplete';
 import Button from '../../../components/Buttons/Button';
 import { ButtonColors } from '../../../components/Buttons/Button/ButtonColors';
@@ -8,64 +7,19 @@ import FormDateLabel from '../../../components/FormComponents/FormDateLabel';
 import FormToggle from '../../../components/FormComponents/FormToggle';
 import InputComponent from '../../../components/Inputs/Input';
 import { IProduct } from '../../../domain/IProduct';
-import { axiosInstance } from '../../../services/axios';
+import useProduct from '../../../hooks/useProduct';
 
-const baseProduct : IProduct = {
-    name: '',
-    is_active: true
-}
 
 function ProductRegisterPage() {
 
-    const [current, setCurrent] = useState<IProduct>(baseProduct);
-    const [products, setProducts] = useState<IProduct[]>([]);
-
-    
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {  
-        setCurrent({
-        ...current,
-        [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = async (e: FormEvent) => {
-
-        e.preventDefault();
-
-        if(!current.name){
-            alert('Descrição para o produto é obrigatória');
-            return;
-        };
-
-        try{
-            await axiosInstance().post('products/', { name: current.name, is_active: current.is_active} );
-            alert('Produto cadastrado com sucesso');
-            resetForm(e);
-        }catch(err){
-            alert('O seguinte erro ocorreu ao cadastrar o produto:\n' + err)
-        };
-        
-    };
-
-
-    useEffect(() => {
-        async function fetchData() {
-            try{
-                const { data } = await  axiosInstance().get('products');
-                setProducts((prev) => prev = data);
-            }catch(err){
-                alert(err);
-            };
-        };
-        fetchData();  
-    }, []);
-
-    const resetForm = (e: FormEvent) => {
-        e.preventDefault();
-
-        setCurrent(baseProduct);
-    };
-
+    const {
+       products,
+       current,
+       setCurrent,
+       handleChange,
+       handleSubmit,
+       resetForm 
+    } = useProduct();
 
     return (
         <Form title='Produtos'>
