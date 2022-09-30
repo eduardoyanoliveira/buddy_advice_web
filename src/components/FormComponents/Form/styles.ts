@@ -8,28 +8,9 @@ export const Container = styled.form`
     flex-direction: column;
     overflow-y: auto;
     width: 100%;
+    max-width: 650px;
     padding: 0 30px;
     margin-bottom: 30px;
-
-    @media(min-width:${ScreenSizes.sm}){
-        padding: 0 50px;
-    };
-
-
-    @media(min-width:${ScreenSizes.md}){
-        padding: 0 80px;
-        border-radius: 0 0 10px 10px;
-
-    }; 
-
-    
-    @media(min-width:${ScreenSizes.lg}){
-        padding: 0 220px;
-    };
-
-    @media(min-width:${ScreenSizes.xl}){
-        padding: 0 220px;
-    }; 
 
     &::-webkit-scrollbar {
         width: 4px;
