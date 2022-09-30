@@ -49,7 +49,7 @@ function useCreateUser() {
             return;
         };
 
-        await axiosInstance().post('users/', { username, email, password} );
+        await axiosInstance().post('users/', { username, email, password, passowrd_confirmation: passwordConfirm} );
 
         window.location.reload();
     };
