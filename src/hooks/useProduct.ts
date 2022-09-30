@@ -59,7 +59,7 @@ function useProduct() {
 
         try{
             if(current.id){
-                await axiosInstance().put('products/', current );
+                await axiosInstance().patch(`products/${current.id}/`, current );
                 alert('Produto alterado com sucesso');
             }else{
                 await axiosInstance().post('products/', { name: current.name, is_active: current.is_active} );
