@@ -34,8 +34,8 @@ function useLogin() {
 
         try{
             const { data } = await axiosInstance().post('token/', current);
-            console.log(data);
             localStorage.setItem('@token', data.access);
+            window.location.reload();
 
         }catch(err){
             alert('Não foi possível realizar o login, confira os dados! ');
