@@ -2,6 +2,7 @@ import { ThemeColors } from "../styled";
 
 const baseColors = {
     primary: '#2EA975',
+    secondary: '#2E7BA9',
     primaryGradient: 'linear-gradient(259.64deg, #23AE78 7.73%, #229B68 50.88%, #068155 92.27%)',
 };
 

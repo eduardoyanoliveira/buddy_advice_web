@@ -46,7 +46,28 @@ export const AutoCompleteContainer = styled.div`
     display: flex;
 `;
 
-export const AutoCompleteInput = styled(Input)<IAutoCompleteContainerProps>`
+export const AutoCompleteInput = styled.input<IAutoCompleteContainerProps>`
+
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    text-indent: 15px;
+
+    color: ${props => props.theme.colors.primary};
+
+    ${({theme}) => css`
+        background-color: ${theme.colors.backgroundAlt};
+        border: 2px solid ${theme.colors.stroke};
+        ${theme.typographies.titleTwo};
+    `};
+
+    &::placeholder { 
+        ${({theme}) => css`
+            color: ${theme.colors.font};
+        `}
+    };
 
     ${({ borderRadius, displayIcon }) => css`
         border-radius: ${borderRadius};
@@ -65,7 +86,7 @@ export const IconContainer = styled.div<IAutoCompleteContainerProps>`
     `};
 
     ${({theme}) => css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.backgroundAlt};
     `};
 
     @media(min-width: ${ScreenSizes.sm}){

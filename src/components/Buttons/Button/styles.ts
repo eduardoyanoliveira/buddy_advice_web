@@ -13,6 +13,8 @@ const handleBackgroundColor = (theme : DefaultTheme, backgroundColor : string) :
             return theme.colors.primaryGradient
         case 'primary':
             return theme.colors.primary
+        case 'secondary':
+            return theme.colors.secondary
         default:
             return theme.colors.primaryGradient
     };

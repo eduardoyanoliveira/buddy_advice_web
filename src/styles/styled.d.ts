@@ -3,6 +3,7 @@ import 'styled-components';
 export interface ThemeColors {
     primary: string,
     primaryGradient: string,
+    secondary: string,
     background: string,
     backgroundAlt: string,
     font: string,

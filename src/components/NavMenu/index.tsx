@@ -25,7 +25,7 @@ function NavMenu() {
                     <BiHome/>
                 </MenuItem>
                 <MenuItem>
-                    <TbMeat/>
+                    <TbMeat onClick={() => navigate('/products/register')}/> 
                 </MenuItem>
                 <MenuItem>
                     <HiOutlineBookOpen/>
