@@ -9,7 +9,7 @@ const baseProduct : IProduct = {
 
 
 function useProduct() {
-    
+
     const [current, setCurrent] = useState<IProduct>(baseProduct);
     const [products, setProducts] = useState<IProduct[]>([]);
 
@@ -58,11 +58,16 @@ function useProduct() {
         };
 
         try{
-            await axiosInstance().post('products/', { name: current.name, is_active: current.is_active} );
-            alert('Produto cadastrado com sucesso');
-            resetForm(e);
+            if(current.id){
+                await axiosInstance().put('products/', current );
+                alert('Produto alterado com sucesso');
+            }else{
+                await axiosInstance().post('products/', { name: current.name, is_active: current.is_active} );
+                alert('Produto cadastrado com sucesso');
+                resetForm(e);
+            };
         }catch(err){
-            alert('O seguinte erro ocorreu ao cadastrar o produto:\n' + err)
+            alert('O seguinte erro ocorreu ao enviar a requisição:\n' + err)
         };
         
     },[current, resetForm]);
