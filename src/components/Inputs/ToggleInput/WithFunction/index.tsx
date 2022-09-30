@@ -12,10 +12,10 @@ const ToggleInputWithFunction: React.FC<IToggleInputProps> = ({ small, margin, o
 
     const [toggle, setToggle] = useState<boolean>(false);
 
-    const handleClick = useCallback(() => {
+    const handleClick = () => {
         setToggle((prev) => prev = !prev);
         onClick && onClick();
-    },[onClick])
+    };
 
     return (
         <ToggleContainer small={small} data-testid='toggle-container' margin={margin} onClick={handleClick}>

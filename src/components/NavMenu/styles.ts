@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components";
+import { ScreenSizes } from "../../utils/screen/sizes";
 
-export const Container = styled.header`
+
+export const Container = styled.footer`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 20px;
     height: 80px;
@@ -14,26 +16,16 @@ export const Container = styled.header`
 
 `;
 
-export const Logo = styled.h2`
-    font-family: 'EB Garamond', serif;
-    font-size: 30px;
-
-    ${({theme}) => css`
-        color: ${theme.colors.primary} ;
-    `};
-    
-    cursor: pointer;
-`;
-
 export const Menu = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 800px;
 `;
 
 export const MenuItem = styled.li`
     list-style: none;
-    margin-left: 25px;
+    margin: 0 15px;
 
     ${({theme}) => css`
         color: ${theme.colors.font} ;
@@ -44,6 +36,16 @@ export const MenuItem = styled.li`
         ${({theme}) => css`
             color: ${theme.colors.primary} ;
         `};
+    };
+
+    
+    @media(min-width:${ScreenSizes.md}){
+        margin: 0 30px;
+    }; 
+
+    
+    @media(min-width:${ScreenSizes.lg}){
+        margin: 0 35px;
     };
 
     font-size: 1.6rem;

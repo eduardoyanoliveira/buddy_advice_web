@@ -1,11 +1,15 @@
 import styled, { css } from "styled-components";
 
-export const AppTemplate = styled.main`
+interface IAppTemplate {
+    isLogged?: boolean 
+};
 
-    height: calc(100vh - 80px);
+export const AppTemplate = styled.main<IAppTemplate>`
+
     width: 100%;
 
-    ${({theme}) => css`
+    ${({theme, isLogged}) => css`
         background-image: ${theme.colors.background} ;
+        height: ${isLogged ? ' calc(100vh - 80px)' : '100vh'};
     `};
 `;
