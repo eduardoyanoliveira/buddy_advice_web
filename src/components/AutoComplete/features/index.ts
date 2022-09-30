@@ -7,7 +7,7 @@ interface IAutoCompleteComponentProps<T>{
     getItem(item: T): void,
 };
 
-function AutoCompleteComponent<T = any>({ data, fieldToDisplay, getItem } : IAutoCompleteComponentProps<T>){
+function AutoCompleteComponent<T extends {}>({ data, fieldToDisplay, getItem } : IAutoCompleteComponentProps<T>){
 
     const [inputValue, setInputValue] = useState('');
 

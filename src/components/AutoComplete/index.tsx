@@ -26,7 +26,7 @@ interface IAutoCompleteProps<T>{
 };
 
 
-function AutoComplete<T>({ 
+function AutoComplete<T extends {}>({ 
     name,
     label,
     initialValue = '',

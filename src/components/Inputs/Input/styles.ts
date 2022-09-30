@@ -39,10 +39,11 @@ export const Input = styled.input`
     width: 100%;
     text-indent: 15px;
 
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.font};
 
     ${({theme}) => css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.backgroundAlt};
+        border: 2px solid ${theme.colors.stroke};
         ${theme.typographies.titleTwo};
     `}
 

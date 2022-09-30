@@ -7,7 +7,7 @@ import { objectContains } from "./objectContains";
  * @returns the objects that the specific atribute contains the value 
  */
 
-export function listObjectContains<T>(attr: string, value : string, data: T[]) : T[] {
+export function listObjectContains<T extends {}>(attr: string, value : string, data: T[]) : T[] {
     if(value === '%') return data;
   
     attr = attr.toLowerCase();
