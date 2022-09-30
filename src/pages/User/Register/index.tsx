@@ -7,7 +7,7 @@ import useCreateUser from "../../../hooks/useCreateUser";
 
 function UserRegisterPage() {
 
-    const { handleChange, handleSubmit } = useCreateUser();
+    const { current, handleChange, handleSubmit } = useCreateUser();
 
     return (
         <Form title={'Cadastre-se'}>
@@ -17,6 +17,7 @@ function UserRegisterPage() {
                     label="Username"
                     name="username"
                     type={'text'}
+                    value={current.username || ''}
                     onChange={handleChange}
                 />
             </FormContainer>
@@ -26,6 +27,7 @@ function UserRegisterPage() {
                     label="Email"
                     name="email"
                     type={'email'}
+                    value={current.email || ''}
                     onChange={handleChange}
                 />
             </FormContainer>
@@ -35,6 +37,7 @@ function UserRegisterPage() {
                     label="Senha"
                     name="password"
                     type={'password'}
+                    value={current.password || ''}
                     onChange={handleChange}
                 />
             </FormContainer>
@@ -44,6 +47,7 @@ function UserRegisterPage() {
                     label="Confirme sua Senha"
                     name="passwordConfirm"
                     type={'password'}
+                    value={current.passwordConfirm || ''}
                     onChange={handleChange}
                 />
             </FormContainer>

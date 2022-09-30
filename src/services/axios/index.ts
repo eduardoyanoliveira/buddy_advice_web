@@ -6,22 +6,16 @@ const BASE_URL = 'http://localhost:8000/api/';
 
 export function axiosInstance(multipart?: boolean){
 
-    const token = localStorage.getItem('@token')
-
-    if(!token){
-        console.log('Error: Token not found')
-    };
-
     let headers = {};
 
     if(multipart){
         headers = {
-            Authorization: `Bearer ${token}`,
+            Authorization:  localStorage.getItem('@token') ? `JWT ${localStorage.getItem('@token')}` : null,
             'Content-Type': 'multipart/form-data',
         };
     }else{
         headers = {
-            Authorization: `Bearer ${token}`
+            Authorization: localStorage.getItem('@token') ? `JWT ${localStorage.getItem('@token')}` : null,
         };
     };
 

@@ -35,6 +35,7 @@ function useCreateUser() {
 
         if(!username || !email || !password || !passwordConfirm){
             alert('Todos os campos deste formulário são obrigatórios!');
+            return;
         };
 
         if(password !== passwordConfirm){
@@ -44,9 +45,11 @@ function useCreateUser() {
                 password: '',
                 passwordConfirm: ''
             });
+
+            return;
         };
 
-        await axiosInstance().post('users', current);
+        await axiosInstance().post('users/', { username, email, password} );
 
         window.location.reload();
     };
