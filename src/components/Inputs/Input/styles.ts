@@ -47,6 +47,13 @@ export const Input = styled.input`
         ${theme.typographies.titleTwo};
     `}
 
+    &:focus{
+       
+        ${({theme}) => css`
+            border: 3px solid ${theme.colors.primary};
+        `}
+    }
+
     &::placeholder { 
         ${({theme}) => css`
             color: ${theme.colors.font};
