@@ -58,7 +58,7 @@ function ProductRegisterPage() {
             <FormContainer>
                 <InputComponent
                     name='name'
-                    label='Descrção'
+                    label='Descrição'
                     onChange={handleChange}
                     value={current.name || ''}
                     type={'text'}
