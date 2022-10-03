@@ -44,7 +44,7 @@ export const TextInput = styled.textarea`
     color: ${props => props.theme.colors.font};
 
     ${({theme}) => css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.backgroundAlt};
         ${theme.typographies.titleTwo};
     `}
 
@@ -52,5 +52,12 @@ export const TextInput = styled.textarea`
         ${({theme}) => css`
             color: ${theme.colors.font};
         `}
+    };
+
+    &:focus{
+       
+       ${({theme}) => css`
+           border: 3px solid ${theme.colors.primary};
+       `}
     };
 `;

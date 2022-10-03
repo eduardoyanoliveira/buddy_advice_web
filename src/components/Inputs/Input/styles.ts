@@ -52,7 +52,7 @@ export const Input = styled.input`
         ${({theme}) => css`
             border: 3px solid ${theme.colors.primary};
         `}
-    }
+    };
 
     &::placeholder { 
         ${({theme}) => css`

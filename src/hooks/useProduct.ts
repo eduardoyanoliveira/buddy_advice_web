@@ -1,9 +1,11 @@
-import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { IProduct } from "../domain/IProduct";
 import { axiosInstance } from "../services/axios";
 
 const baseProduct : IProduct = {
     name: '',
+    description: '',
+    image: '',
     is_active: true
 };
 
@@ -12,6 +14,7 @@ function useProduct() {
 
     const [current, setCurrent] = useState<IProduct>(baseProduct);
     const [products, setProducts] = useState<IProduct[]>([]);
+    const [url, setUrl] = useState('');
 
     const isMounted = useRef(true);
 
@@ -36,12 +39,25 @@ function useProduct() {
         
     }, []);
 
-    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {  
+    const handleChange = useCallback((e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {  
         setCurrent((prev) => prev = {
             ...prev,
             [e.target.name]: e.target.value
         });
     },[]);
+
+    const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
+        if(!e.target.files) return;
+
+        const image = e.target.files[0];
+
+        if(!image) return;
+
+        if(image.type === 'image/jpeg' || image.type === 'image/png'){
+            setCurrent((prev) => prev = { ...prev, image: image });
+            setUrl(URL.createObjectURL(image));
+        };
+    };
 
     const resetForm = useCallback((e: FormEvent) => {
         e.preventDefault();
@@ -59,18 +75,24 @@ function useProduct() {
 
         try{
             if(current.id){
-                await axiosInstance().patch(`products/${current.id}/`, current );
+                await axiosInstance(true).patch(`products/${current.id}/`, current );
                 alert('Produto alterado com sucesso');
+                window.location.reload();
             }else{
-                await axiosInstance().post('products/', { name: current.name, is_active: current.is_active} );
+                await axiosInstance(true).post('products/', { 
+                    name: current.name, 
+                    is_active: current.is_active,
+                    description: current.description,
+                    image: current.image
+                });
                 alert('Produto cadastrado com sucesso');
-                resetForm(e);
+                window.location.reload();
             };
         }catch(err){
             alert('O seguinte erro ocorreu ao enviar a requisição:\n' + err)
         };
         
-    },[current, resetForm]);
+    },[current]);
 
     return {
         products,
@@ -78,7 +100,9 @@ function useProduct() {
         setCurrent,
         handleChange,
         handleSubmit,
-        resetForm
+        resetForm,
+        url,
+        handleFile
     };
 
 };

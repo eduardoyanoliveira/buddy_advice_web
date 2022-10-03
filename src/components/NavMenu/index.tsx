@@ -1,8 +1,8 @@
 import { Container, Menu, MenuItem } from "./styles";
 import { useNavigate } from 'react-router-dom';
-import { TbMeat } from 'react-icons/tb'
 import { BiExit, BiHome } from 'react-icons/bi';
-import { HiOutlineBookOpen } from 'react-icons/hi'
+import { HiOutlineBookOpen } from 'react-icons/hi';
+import { MdDevicesOther } from 'react-icons/md';
 import ToggleInputWithFunction from '../Inputs/ToggleInput/WithFunction';
 import { ThemeContext } from "../../styles/themeProvider";
 import { useContext } from "react";
@@ -27,7 +27,7 @@ function NavMenu() {
                     <BiHome/>
                 </MenuItem>
                 <MenuItem>
-                    <TbMeat onClick={() => navigate('/products/register')}/> 
+                    <MdDevicesOther onClick={() => navigate('/products/register')}/> 
                 </MenuItem>
                 <MenuItem>
                     <HiOutlineBookOpen/>

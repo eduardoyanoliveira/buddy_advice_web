@@ -5,7 +5,9 @@ import Form from '../../../components/FormComponents/Form';
 import FormContainer from '../../../components/FormComponents/FormContainer';
 import FormDateLabel from '../../../components/FormComponents/FormDateLabel';
 import FormToggle from '../../../components/FormComponents/FormToggle';
+import FileInput from '../../../components/Inputs/FileInput';
 import InputComponent from '../../../components/Inputs/Input';
+import TextBox from '../../../components/Inputs/TextBox';
 import { IProduct } from '../../../domain/IProduct';
 import useProduct from '../../../hooks/useProduct';
 
@@ -18,8 +20,11 @@ function ProductRegisterPage() {
        setCurrent,
        handleChange,
        handleSubmit,
-       resetForm 
+       resetForm,
+       url,
+       handleFile
     } = useProduct();
+
 
     return (
         <Form title='Produtos'>
@@ -56,12 +61,29 @@ function ProductRegisterPage() {
       </FormContainer>
 
             <FormContainer>
+                <FileInput
+                    alt={current?.name}
+                    url={url || current.image as string}
+                    handleChange={handleFile}
+                />
+            </FormContainer>
+
+            <FormContainer>
                 <InputComponent
                     name='name'
-                    label='Descrição'
+                    label='Nome'
                     onChange={handleChange}
                     value={current.name || ''}
                     type={'text'}
+                />
+            </FormContainer>
+
+            <FormContainer>
+                <TextBox
+                    name='description'
+                    label='Descrição'
+                    onChange={handleChange}
+                    value={current.description || ''}
                 />
             </FormContainer>
 

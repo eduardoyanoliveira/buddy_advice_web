@@ -30,6 +30,34 @@ export const Container = styled.form`
         &::-webkit-scrollbar-thumb:hover {
         background: 0;
     }
+
+    overflow-y: auto;
+    height: calc(100% - 180px);
+
+    
+    ${({theme}) => css`
+        scrollbar-color: ${theme.colors.font} ${theme.colors.backgroundAlt};
+        scrollbar-width: thin;
+    `};
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    };
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+
+        ${({theme}) => css`
+            background: ${theme.colors.font};
+        `}
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+    };
+    
+    /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+        background: 0;
+    };
 `;
 
 export const Title = styled.h1`
