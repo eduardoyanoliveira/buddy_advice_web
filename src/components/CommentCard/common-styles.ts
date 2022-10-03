@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 
     ${({theme}) => css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.backgroundAlt};
     `};
 
 

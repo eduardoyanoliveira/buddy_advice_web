@@ -1,6 +1,7 @@
 import React, { FormEvent, useEffect, useRef, useState } from 'react'
 import Button from '../../../components/Buttons/Button';
 import { ButtonColors } from '../../../components/Buttons/Button/ButtonColors';
+import CommentItemCard from '../../../components/CommentCard';
 import Form from '../../../components/FormComponents/Form';
 import FormContainer from '../../../components/FormComponents/FormContainer';
 import TextBox from '../../../components/Inputs/TextBox';
@@ -42,14 +43,14 @@ function ProductDetailPage() {
 
         async function fetchData() {
             try{
-                const { data } = await  axiosInstance().get('comments');
+                const { data } = await  axiosInstance().get('get_comments_by_product/' + product?.id);
                 setComments((prev) => prev = data);
             }catch(err){
                 alert(err);
             };
         };
 
-        if(isMounted.current){
+        if(isMounted.current && product){
             fetchData();  
         };
 
@@ -57,7 +58,7 @@ function ProductDetailPage() {
             isMounted.current = false;
         };
         
-    });
+    },[product]);
 
     console.log(comments)
 
@@ -72,6 +73,11 @@ function ProductDetailPage() {
                     {product?.description}
                 </ProductDesc>
             </ProductContainer>
+            {
+                comments.map((comment) => {
+                    return <CommentItemCard comment={comment}/>
+                })
+            }
             <Form title={'Faça um comentário'}>
             <FormContainer>
                     <TextBox name='text' value={text} onChange={(e) => setText(e.target.value)}/>
