@@ -1,9 +1,14 @@
 import React from 'react'
+import { Container, Logo } from './styles';
 
-function index() {
-  return (
-    <div>index</div>
-  )
-}
+function AppHeader() {
+    return (
+        <Container>
+            <Logo>
+                Buddy Advice
+            </Logo>
+        </Container>
+    );
+};
 
-export default index
+export default AppHeader

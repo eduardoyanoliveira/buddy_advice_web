@@ -13,6 +13,6 @@ export const AppTemplate = styled.main<IAppTemplate>`
     
     ${({theme, isLogged}) => css`
         background-image: ${theme.colors.background} ;
-        height: ${isLogged ? ' calc(100vh - 80px)' : '100vh'};
+        height: ${isLogged ? ' calc(100vh - 160px)' : '100vh'};
     `};
 `;
