@@ -4,6 +4,7 @@ import ProductRegisterPage from "./pages/Product/Register";
 import LoginPage from "./pages/User/Login";
 import UserRegisterPage from "./pages/User/Register";
 import HomePage from './pages/home';
+import ProductDetailPage from "./pages/Product/Detail";
 
 export function Router(){
 
@@ -15,6 +16,7 @@ export function Router(){
                     <Routes>
                         <Route path="/" element={<HomePage/>}></Route>
                         <Route path='/products/register' element={<ProductRegisterPage/>}></Route>
+                        <Route path='/products/:id' element={<ProductDetailPage/>}></Route>
                         <Route path="*" element={<ErrorPage/>}></Route>
                     </Routes> 
                    

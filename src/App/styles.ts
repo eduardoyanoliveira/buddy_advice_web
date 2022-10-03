@@ -10,7 +10,9 @@ export const AppTemplate = styled.main<IAppTemplate>`
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    flex-direction: column;
+    overflow-y: auto;
+
     ${({theme, isLogged}) => css`
         background-image: ${theme.colors.background} ;
         height: ${isLogged ? ' calc(100vh - 160px)' : '100vh'};

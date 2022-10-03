@@ -29,9 +29,6 @@ function NavMenu() {
                 <MenuItem>
                     <MdDevicesOther onClick={() => navigate('/products/register')}/> 
                 </MenuItem>
-                <MenuItem>
-                    <HiOutlineBookOpen/>
-                </MenuItem>
                 <MenuItem onClick={logOut}>
                     <BiExit />
                 </MenuItem>
