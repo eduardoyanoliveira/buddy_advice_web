@@ -1,3 +1,4 @@
+import jwtDecode from 'jwt-decode';
 import React, { useState, FormEvent } from 'react'
 import { axiosInstance } from '../services/axios';
 
@@ -5,6 +6,14 @@ interface IUserCredentials {
     email: string,
     password: string,
 }; 
+
+interface IToken  {
+    exp: number,
+    iat: number,
+    jti: string,
+    token_type: string
+    user_id: number
+};
 
 
 function useLogin() {
@@ -35,6 +44,12 @@ function useLogin() {
         try{
             const { data } = await axiosInstance().post('token/', current);
             localStorage.setItem('@token', data.access);
+
+            // Get The user from the user_id of the token and stores the user on the localstorage
+            const tokenData : IToken = jwtDecode(data.access);
+            const { data: user } = await axiosInstance().get('users/' + tokenData.user_id);
+
+            localStorage.setItem('@user', {...user});
             window.location.reload();
 
         }catch(err){

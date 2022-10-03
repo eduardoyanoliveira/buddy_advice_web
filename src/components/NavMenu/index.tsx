@@ -15,6 +15,7 @@ function NavMenu() {
 
     const logOut = () => {
         localStorage.removeItem('@token');
+        localStorage.removeItem('@user');
         navigate('/');
         window.location.reload();
     };
