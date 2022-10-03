@@ -1,25 +1,32 @@
 import styled, { css } from "styled-components";
-import { Input } from "../Input/styles";
-
 interface ContainerProps {
     maxWidth?: string,
     margin?: string
 };
 
 
-export const Container = styled.div<ContainerProps>`
-    display: flex;
-    border-radius: 5px;
-    width: 100%;
-    ${({ maxWidth, margin }) => css`
-        max-width: ${maxWidth};
-        margin: ${margin};
-    `};
-`;
 
-export const SearchInput = styled(Input)`
+export const SearchInput = styled.input`
     width: 80%;
     border-radius: 5px 0 0 5px;
+    outline: none;
+    border: none;
+    height: 50px;
+    text-indent: 15px;
+
+    color: ${props => props.theme.colors.font};
+    
+    ${({theme}) => css`
+        background-color: ${theme.colors.backgroundAlt};
+        border: 2px solid ${theme.colors.stroke};
+        ${theme.typographies.titleTwo};
+    `}
+
+    &::placeholder { 
+        ${({theme}) => css`
+            color: ${theme.colors.font};
+        `}
+    }
 `;
 
 export const IconContainer = styled.div`
@@ -31,8 +38,20 @@ export const IconContainer = styled.div`
     width: 20%;
     border-radius: 0 5px 5px 0;
     ${({theme}) => css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.backgroundAlt};
     `}
+
+`;
+
+export const Container = styled.div<ContainerProps>`
+    display: flex;
+    border-radius: 5px;
+    width: 100%;
+    ${({ maxWidth, margin }) => css`
+        max-width: ${maxWidth};
+        margin: ${margin};
+    `};
+
 `;
 
 export const Icon = styled.div`
@@ -42,7 +61,6 @@ export const Icon = styled.div`
     width: 30px;
     height: 30px;
     border-radius: 4px;
-
     color: #fff;
 
     ${({theme}) => css`

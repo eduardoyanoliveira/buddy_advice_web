@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from 'react'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa';
 import { Container, Icon, IconContainer, SearchInput } from './styles'
 
 
