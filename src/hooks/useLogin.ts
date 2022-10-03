@@ -49,7 +49,7 @@ function useLogin() {
             const tokenData : IToken = jwtDecode(data.access);
             const { data: user } = await axiosInstance().get('users/' + tokenData.user_id);
 
-            localStorage.setItem('@user', {...user});
+            localStorage.setItem('@user',JSON.stringify(user));
             window.location.reload();
 
         }catch(err){

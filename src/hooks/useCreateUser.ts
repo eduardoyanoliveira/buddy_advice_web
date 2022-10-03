@@ -7,7 +7,7 @@ interface IUser {
     email: string,
     password: string,
     passwordConfirm: string,
-    file: string | File
+    image: string | File
 }; 
 
 export const baseUser = {
@@ -15,7 +15,7 @@ export const baseUser = {
     email: '',
     password: '',
     passwordConfirm: '',
-    file: ''
+    image: ''
 };
 
 
@@ -41,7 +41,7 @@ function useCreateUser() {
         if(!image) return;
 
         if(image.type === 'image/jpeg' || image.type === 'image/png'){
-            setCurrent((prev) => prev = { ...prev, file: image });
+            setCurrent((prev) => prev = { ...prev, image: image });
             setUrl(URL.createObjectURL(image));
         };
     };
@@ -50,7 +50,7 @@ function useCreateUser() {
 
         e.preventDefault();
 
-        const { username, email, password, passwordConfirm } = current;
+        const { username, email, password, passwordConfirm, image } = current;
 
         if(!username || !email || !password || !passwordConfirm){
             alert('Todos os campos deste formulário são obrigatórios!');
@@ -68,7 +68,14 @@ function useCreateUser() {
             return;
         };
 
-        await axiosInstance().post('users/', { username, email, password, passowrd_confirmation: passwordConfirm} );
+        await axiosInstance(true).post('users/', { 
+            username, 
+            email, 
+            password, 
+            passowrd_confirmation: passwordConfirm, 
+            is_active: true,
+            image
+        });
         navigate('/');
         window.location.reload();
     };
