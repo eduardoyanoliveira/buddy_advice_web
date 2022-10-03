@@ -1,7 +1,11 @@
 import styled, { css } from "styled-components";
 import { ScreenSizes } from "../../../utils/screen/sizes";
 
-export const Container = styled.form`
+interface IContainer {
+    isLogged?: boolean,
+};
+
+export const Container = styled.form<IContainer>`
 
     display: flex;
     align-items: center;
@@ -20,7 +24,7 @@ export const Container = styled.form`
     &::-webkit-scrollbar-thumb {
 
         ${({theme}) => css`
-            background: ${theme.colors.font};
+            background: ${theme.colors.iconColor};
         `}
         -webkit-border-radius: 2px;
         border-radius: 2px;
@@ -29,14 +33,16 @@ export const Container = styled.form`
     /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
         background: 0;
-    }
+    };
+
+    ${({isLogged}) => css`
+        height: ${isLogged ? 'calc(100% - 180px)' : ''};
+    `};
 
     overflow-y: auto;
-    height: calc(100% - 180px);
-
     
     ${({theme}) => css`
-        scrollbar-color: ${theme.colors.font} ${theme.colors.backgroundAlt};
+        scrollbar-color: ${theme.colors.iconColor} ${theme.colors.backgroundAlt};
         scrollbar-width: thin;
     `};
 
@@ -48,7 +54,7 @@ export const Container = styled.form`
     &::-webkit-scrollbar-thumb {
 
         ${({theme}) => css`
-            background: ${theme.colors.font};
+            background: ${theme.colors.iconColor};
         `}
         -webkit-border-radius: 2px;
         border-radius: 2px;

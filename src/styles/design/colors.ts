@@ -12,6 +12,7 @@ export const darkColors : ThemeColors = {
     background: 'linear-gradient(90.51deg, rgba(13, 15, 15, 0.97) 0.52%, #0D0F0F 60.38%, rgba(13, 15, 15, 0.97) 99.67%)',
     backgroundAlt : '#191A1A',
     font: '#E1E1E6',
+    iconColor: '#83838E',
     stroke: '#1E1E1E'
 };
 
@@ -21,5 +22,6 @@ export const lightColors : ThemeColors = {
     background: 'linear-gradient(0deg, #FFFFFF, #FFFFFF)',
     backgroundAlt : '#F7F7F7',
     font: '#1C1C23',  
+    iconColor: '#83838E',
     stroke: '#F5F5F5'
 };

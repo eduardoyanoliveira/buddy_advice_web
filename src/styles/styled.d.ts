@@ -7,6 +7,7 @@ export interface ThemeColors {
     background: string,
     backgroundAlt: string,
     font: string,
+    iconColor: string,
     stroke: string,
 }
 

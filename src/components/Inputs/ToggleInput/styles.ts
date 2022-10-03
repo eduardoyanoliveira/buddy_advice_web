@@ -19,7 +19,7 @@ export const ToggleContainer = styled.div<IToggleProps>`
     border-radius: 30px;
 
     ${({theme, margin}) => css`
-        background-color: ${theme.colors.font};
+        background-color: ${theme.colors.iconColor};
         margin: ${margin};
     `}
 
