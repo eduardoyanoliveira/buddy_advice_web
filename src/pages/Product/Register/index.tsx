@@ -51,7 +51,7 @@ function ProductRegisterPage() {
                 id='toggle' 
                 toggleLabel='Ativo?' 
                 initialValue={current?.is_active} 
-                getValue={(value: boolean) => setCurrent((prev) => prev = { ...prev, is_active: value })}
+                getValue={(value: boolean) => setCurrent((prev: IProduct) => prev = { ...prev, is_active: value })}
             />
       </FormContainer>
 

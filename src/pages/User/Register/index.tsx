@@ -2,15 +2,30 @@ import Button from "../../../components/Buttons/Button";
 import { ButtonColors } from "../../../components/Buttons/Button/ButtonColors";
 import Form from "../../../components/FormComponents/Form";
 import FormContainer from "../../../components/FormComponents/FormContainer";
+import FileInput from "../../../components/Inputs/FileInput";
 import InputComponent from "../../../components/Inputs/Input";
 import useCreateUser from "../../../hooks/useCreateUser";
+import { LinkLabel } from "../styles";
 
 function UserRegisterPage() {
 
-    const { current, handleChange, handleSubmit } = useCreateUser();
+    const { current, 
+        handleChange,
+        handleSubmit,
+        url, 
+        handleFile 
+    } = useCreateUser();
 
     return (
         <Form title={'Cadastre-se'}>
+
+            <FormContainer>
+                <FileInput
+                    alt={current?.username}
+                    url={url}
+                    handleChange={handleFile}
+                />
+            </FormContainer>
                 
             <FormContainer>
                 <InputComponent 
@@ -59,6 +74,7 @@ function UserRegisterPage() {
                     onClick={handleSubmit}
                 />
             </FormContainer>
+            <LinkLabel to={'/'}> Já possui uma conta? Faça login por aqui!</LinkLabel>
         </Form>
     );
 };

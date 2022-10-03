@@ -4,6 +4,7 @@ import Form from "../../../components/FormComponents/Form";
 import FormContainer from "../../../components/FormComponents/FormContainer";
 import InputComponent from "../../../components/Inputs/Input";
 import useLogin from "../../../hooks/useLogin";
+import { LinkLabel } from "../styles";
 
 function LoginPage() {
 
@@ -36,6 +37,7 @@ function LoginPage() {
                     onClick={handleSubmit}
                 />
             </FormContainer>
+            <LinkLabel to={'/users/register'}> Não possui uma conta? Crie uma por aqui!</LinkLabel>
         </Form>
     );
 };
