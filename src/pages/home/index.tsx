@@ -1,4 +1,5 @@
 import SearchInput  from "../../components/Inputs/SearchInput";
+import ProductCard from "../../components/ProductCard";
 import useFilter from "../../hooks/useFilter";
 import useProduct from "../../hooks/useProduct";
 import { Container } from "./styles";
@@ -7,8 +8,6 @@ function Home() {
 
     const { products } = useProduct();
     const { search, setSearch, filteredData } = useFilter(products, 'name');
-
-    console.log(filteredData)
 
     return (
         <Container>
@@ -20,9 +19,11 @@ function Home() {
             {
                 filteredData.map((product) => {
                     return (
-                        <div key={product.id}>
-                            {product.name}
-                        </div>
+                        <ProductCard 
+                            key={product.id} 
+                            product={product}
+                            margin={'0 0 20px 0'}
+                        />
                     )
                 })
             }
