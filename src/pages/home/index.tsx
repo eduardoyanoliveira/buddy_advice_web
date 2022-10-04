@@ -2,7 +2,7 @@ import SearchInput  from "../../components/Inputs/SearchInput";
 import ProductCard from "../../components/ProductCard";
 import useFilter from "../../hooks/useFilter";
 import useProduct from "../../hooks/useProduct";
-import { Container } from "./styles";
+import { Container, ProductsContainer } from "./styles";
 
 function Home() {
 
@@ -16,17 +16,19 @@ function Home() {
                 onChange={(e) => setSearch(e.target.value)}
                 margin={'0 0 50px 0'}
             />
-            {
-                filteredData.map((product) => {
-                    return (
-                        <ProductCard 
-                            key={product.id} 
-                            product={product}
-                            margin={'0 0 20px 0'}
-                        />
-                    )
-                })
-            }
+            <ProductsContainer>
+                {
+                    filteredData.map((product) => {
+                        return (
+                            <ProductCard 
+                                key={product.id} 
+                                product={product}
+                                margin={'10px'}
+                            />
+                        )
+                    })
+                }
+            </ProductsContainer>
         </Container>
     );
 };

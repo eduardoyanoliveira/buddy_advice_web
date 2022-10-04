@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IProduct } from "../domain/IProduct";
 import { axiosInstance } from "../services/axios";
 
@@ -12,6 +13,7 @@ const baseProduct : IProduct = {
 
 function useProduct() {
 
+    const navigate = useNavigate();
     const [current, setCurrent] = useState<IProduct>(baseProduct);
     const [products, setProducts] = useState<IProduct[]>([]);
     const [url, setUrl] = useState('');
@@ -77,6 +79,7 @@ function useProduct() {
             if(current.id){
                 await axiosInstance(true).patch(`products/${current.id}/`, current );
                 alert('Produto alterado com sucesso');
+                navigate('/');
                 window.location.reload();
             }else{
                 await axiosInstance(true).post('products/', { 
@@ -86,13 +89,16 @@ function useProduct() {
                     image: current.image
                 });
                 alert('Produto cadastrado com sucesso');
+                navigate('/');
                 window.location.reload();
             };
         }catch(err){
-            alert('O seguinte erro ocorreu ao enviar a requisição:\n' + err)
+            alert('O seguinte erro ocorreu ao enviar a requisição:\n' + err);
+            navigate('/');
+            window.location.reload();
         };
         
-    },[current]);
+    },[current, navigate]);
 
     return {
         products,

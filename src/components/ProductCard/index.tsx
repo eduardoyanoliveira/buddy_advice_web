@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IProduct } from "../../domain/IProduct";
-import { Container, ContentContainer, Image, ProductDesc, ProductName } from "./styles";
+import { Container, ContentContainer, Image, ProductName } from "./styles";
 
 interface IProductCard {
     product: IProduct,
@@ -18,9 +18,6 @@ function ProductCard({ product, margin }: IProductCard) {
                 <ProductName>
                     {product.name}
                 </ProductName>
-                <ProductDesc>
-                    {product.description}
-                </ProductDesc>
             </ContentContainer>
         </Container>
     );

@@ -59,7 +59,7 @@ export const Container = styled.div`
 `;
 
 export const ProductsContainer = styled.div`
-
-    display: grid;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 `;

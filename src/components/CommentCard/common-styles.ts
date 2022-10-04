@@ -47,7 +47,7 @@ export const Username = styled.label`
     ${({theme}) => css`
         color: ${theme.colors.font};
         ${theme.typographies.subtitleTwo};
-    `}
+    `};
 
     text-overflow: ellipsis;
     overflow: hidden;
