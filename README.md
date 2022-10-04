@@ -32,7 +32,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run eject`
 
 ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/user_register.png)
-![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/tablet.png)
+![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/tablet.png) ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home_mobile.png)
 ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/login.png)
-![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home_mobile.png)
+
 ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home.png)
