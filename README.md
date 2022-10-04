@@ -11,4 +11,4 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/tablet.png) ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home_mobile.png)![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/login.png)![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home.png)
+![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/tablet.png) ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home_mobile.png)
