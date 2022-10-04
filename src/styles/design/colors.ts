@@ -21,7 +21,7 @@ export const lightColors : ThemeColors = {
     ...baseColors,
     background: 'linear-gradient(0deg, #FFFFFF, #FFFFFF)',
     backgroundAlt : '#F7F7F7',
-    font: '#1C1C23',  
+    font: '#44444F', // '#1C1C23'  
     iconColor: '#83838E',
     stroke: '#F5F5F5'
 };

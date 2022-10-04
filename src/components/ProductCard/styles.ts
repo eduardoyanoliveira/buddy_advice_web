@@ -10,7 +10,7 @@ export const Container = styled.div<IContainer>`
     align-items: center;
     flex-direction: column;
     height: fit-content;
-
+    width: 270px;
    
     border-radius: 10px;
 
@@ -48,10 +48,11 @@ export const ContentContainer = styled.div`
     flex-direction: column;
     
     height: 100%;
-    padding: 10px 0;
+    padding: 20px 10px;
 
     @media(min-width:${ScreenSizes.md}){
         width: calc(100% - 250px);
+        padding: 15px 0;
     }; 
 `;
 

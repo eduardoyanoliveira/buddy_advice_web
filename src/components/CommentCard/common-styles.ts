@@ -6,12 +6,11 @@ import { ScreenSizes } from "../../utils/screen/sizes";
 export const Container = styled.div`
 
     width: 100%;
-    min-height: 150px; // Changes to  min-height: 80px; when desktop
     height: auto;
     padding: 10px 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-
+    max-width: 650px;
 
     ${({theme}) => css`
         background-color: ${theme.colors.backgroundAlt};
@@ -84,20 +83,6 @@ export const Subject = styled.h4`
 `;
 
 
-export const Title = styled.p`
-    ${({theme}) => css`
-        color: ${theme.colors.font};
-        ${theme.typographies.subtitleOne};
-    `}
-
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: center;
-    margin: 20px 0 0 0;
-`;
-
-
 export const Text = styled.p`
  ${({theme}) => css`
         color: ${theme.colors.font};
@@ -105,7 +90,6 @@ export const Text = styled.p`
     `}
 
     padding: 0 40px;
-    margin: 35px 0 0 0;
 `;
 
 export const IconsContainer = styled.div`

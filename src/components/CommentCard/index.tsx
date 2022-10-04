@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import { IUser } from '../../domain/IUser';
 
 import { 
-    CommentContainer,
     CommentText
 } from './styles';
 
 import { 
+    Container,
     TopContainer,
     UserContainer,
     Username,
@@ -34,6 +34,7 @@ function CommentItemCard({ comment } : ICommentItemCardProps) {
         async function fetchData() {
             try{
                 const { data } = await  axiosInstance().get('users/' + comment?.author);
+                console.log(data)
                 setAuthor((prev) => prev = data);
             }catch(err){
                 alert(err);
@@ -51,7 +52,7 @@ function CommentItemCard({ comment } : ICommentItemCardProps) {
     });
 
     return (
-        <CommentContainer isDesktop={isDesktop}>
+        <Container>
             <TopContainer>
                 <UserContainer>
                     <UserPhoto 
@@ -68,7 +69,7 @@ function CommentItemCard({ comment } : ICommentItemCardProps) {
             <CommentText isDesktop={isDesktop}>
                 {comment.text}
             </CommentText>
-        </CommentContainer>
+        </Container>
     );
 };
 

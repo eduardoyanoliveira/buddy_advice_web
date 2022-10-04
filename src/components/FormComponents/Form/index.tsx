@@ -12,7 +12,6 @@ const  Form : React.FC<IFormProps> = ({ title, hasImages, children }) => {
         <Container 
             data-testid="form" 
             encType={hasImages ? 'multipart/form-data' : 'application/x-www-form-urlencoded'}
-            isLogged={!!localStorage.getItem('@token')}
         >
             <Title data-testid="form-title">
                 {title}:

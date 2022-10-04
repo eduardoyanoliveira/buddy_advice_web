@@ -1,15 +1,23 @@
-import React, { FormEvent, useEffect, useRef, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import Button from '../../../components/Buttons/Button';
 import { ButtonColors } from '../../../components/Buttons/Button/ButtonColors';
 import CommentItemCard from '../../../components/CommentCard';
-import Form from '../../../components/FormComponents/Form';
 import FormContainer from '../../../components/FormComponents/FormContainer';
 import TextBox from '../../../components/Inputs/TextBox';
 import { IComment } from '../../../domain/IComment';
 import { getByUrlId } from '../../../hooks/GetByUrlId/getByUrlId';
 import useProduct from '../../../hooks/useProduct';
 import { axiosInstance } from '../../../services/axios';
-import { ProductContainer, ProductDesc, ProductName, Image } from './styles';
+import { 
+    ProductContainer,
+    ProductDesc, 
+    ProductName, 
+    Image, 
+    Form, 
+    Title, 
+    CommentsContainer,
+    PageContainer 
+} from './styles';
 
 function ProductDetailPage() {
 
@@ -37,33 +45,26 @@ function ProductDetailPage() {
     const { item: product} = getByUrlId(products);
 
     const [comments, setComments] = useState<IComment[]>([]);
-    const isMounted = useRef(true);
 
     useEffect(() => {
 
         async function fetchData() {
             try{
-                const { data } = await  axiosInstance().get('get_comments_by_product/' + product?.id);
+                const { data } = await  axiosInstance().get('comments/' + product?.id + '/get_comments_by_product/');
                 setComments((prev) => prev = data);
             }catch(err){
                 alert(err);
             };
         };
 
-        if(isMounted.current && product){
+        if(product?.id){
             fetchData();  
         };
 
-        return () => {
-            isMounted.current = false;
-        };
-        
     },[product]);
 
-    console.log(comments)
-
     return (
-        <>
+        <PageContainer>
             <ProductContainer>
                 <ProductName>
                     {product?.name}
@@ -73,24 +74,30 @@ function ProductDetailPage() {
                     {product?.description}
                 </ProductDesc>
             </ProductContainer>
-            {
-                comments.map((comment) => {
-                    return <CommentItemCard comment={comment}/>
-                })
-            }
-            <Form title={'Faça um comentário'}>
-            <FormContainer>
-                    <TextBox name='text' value={text} onChange={(e) => setText(e.target.value)}/>
-                </FormContainer>
+            <CommentsContainer>
+                {
+                    comments.map((comment) => {
+                        return <CommentItemCard key={comment.id} comment={comment}/>
+                    })
+                }
+            </CommentsContainer>
+            <Form>
+                <Title data-testid="form-title">
+                    {'Faça seu Comentário'}:
+                </Title>
                 <FormContainer>
-                    <Button 
-                        text='Responder' 
-                        backgroundColor={ButtonColors.primaryGradient} 
-                        onClick={(e) => handleSubmit(e)}
-                    />
-                </FormContainer>
+                        <TextBox name='text' value={text} onChange={(e) => setText(e.target.value)}/>
+                    </FormContainer>
+                    <FormContainer>
+                        <Button 
+                            text='Responder' 
+                            backgroundColor={ButtonColors.primaryGradient} 
+                            onClick={(e) => handleSubmit(e)}
+                        />
+                    </FormContainer>
             </Form>
-        </>
+           
+        </PageContainer>
     );
 };
 

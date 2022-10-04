@@ -1,11 +1,7 @@
 import styled, { css } from "styled-components";
 import { ScreenSizes } from "../../../utils/screen/sizes";
 
-interface IContainer {
-    isLogged?: boolean,
-};
-
-export const Container = styled.form<IContainer>`
+export const Container = styled.form`
 
     display: flex;
     align-items: center;
@@ -34,10 +30,6 @@ export const Container = styled.form<IContainer>`
         &::-webkit-scrollbar-thumb:hover {
         background: 0;
     };
-
-    ${({isLogged}) => css`
-        height: ${isLogged ? 'calc(100% - 180px)' : ''};
-    `};
 
     overflow-y: auto;
     
