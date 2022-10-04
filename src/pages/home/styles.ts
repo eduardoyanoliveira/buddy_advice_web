@@ -57,3 +57,9 @@ export const Container = styled.div`
         background: 0;
     };
 `;
+
+export const ProductsContainer = styled.div`
+
+    display: grid;
+
+`;
