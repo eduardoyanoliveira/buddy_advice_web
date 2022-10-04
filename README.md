@@ -6,7 +6,7 @@ This project is a simple React app with typescript that consumes a Django Api. T
 
 This is a 100% authoral project.
 
-## Run the project localy
+## Run the project locally in the development mode
 
 1º first install both Python and Node.js in your machine. <br>
 2º Clone the api project [Buddy Advice API Repository](https://github.com/eduardoyanoliveira/buddy_advice_api) <br>
@@ -16,10 +16,5 @@ This is a 100% authoral project.
 6º Activate the python virtual enviroment with a command prompt in the API repository <code> venv/scripts/activate </code> <br>
 7º Start the django server in the python virtual enviroment prompt <code> py manage.py runserver </code> <br>
 8º In a command prompt in this repository run <code> npm start </code> <br>
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/tablet.png) ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home_mobile.png)
