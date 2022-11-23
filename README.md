@@ -2,19 +2,44 @@
 
 This project is a simple React app with typescript that consumes a Django Api. The app provides an interface where the user can create a product or give a comment in a product that already exists.
 
-#### Obs
-
-This is a 100% authoral project.
-
-## Run the project locally in the development mode
-
-1º first install both Python and Node.js in your machine. <br>
-2º Clone the api project [Buddy Advice API Repository](https://github.com/eduardoyanoliveira/buddy_advice_api) <br>
-3º Create a python virtual environment in a command prompt on the API repository <code> py -m venv venv </code>. <br>
-4º Install all the python dependencies in the virtual enviroment with the command <code>pip install -r requirements.txt</code>  <br>
-5º Clone this repository and inside it, open a command prompt and run <code> npm i </code> <br>
-6º Activate the python virtual enviroment with a command prompt in the API repository <code> venv/scripts/activate </code> <br>
-7º Start the django server in the python virtual enviroment prompt <code> py manage.py runserver </code> <br>
-8º In a command prompt in this repository run <code> npm start </code> <br>
-
 ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/tablet.png) ![alt text](https://github.com/eduardoyanoliveira/buddy_advice_web/blob/master/project_images/Home_mobile.png)
+
+## Setup
+
+&nbsp; Before following the steps to setting up this application, it's needed to have the API up and runging. In order to install and run the API the tutorial on the following link must be follow.
+
+[Buddy Adivice Api] (https://github.com/eduardoyanoliveira/buddy_advice_api)
+
+&nbsp; After the API setupt proccess completed, the following steps must be implemented.
+
+1º clone this repository: 
+
+``` git clone https://github.com/eduardoyanoliveira/buddy_advice_web```
+
+2º Install the node packages: Open the repository on a command prompt and execute the following command.
+
+```
+  npm i
+```
+
+  - If using yarn
+
+```
+  yarn
+```
+
+3º Execute localy the react server with the following command in the prompt.
+
+```
+  yarn start
+```
+
+## Main Technologies
+
+  - React.js
+  - Typescript
+  - Styled-Components
+  - Axios
+  - HTML5
+  - CSS3
+  
